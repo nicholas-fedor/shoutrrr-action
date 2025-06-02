@@ -1,7 +1,7 @@
 # Notifications using Shoutrrr in GitHub Actions
 
 With this action, you can send notifications using
-[Shoutrrr](https://containrrr.dev/shoutrrr) from your GitHub Actions
+[Shoutrrr](https://github.com/nicholas-fedor/shoutrrr) from your GitHub Actions
 workflows.
 
 Let's give an example:
@@ -20,7 +20,7 @@ jobs:
       - name: Some other steps needed for deploying
         run: ...
       - name: Shoutrrr
-        uses: containrrr/shoutrrr-action@v1
+        uses: nicholas-fedor/shoutrrr-action@v1
         with:
           url: ${{ secrets.SHOUTRRR_URL }}
           title: Deployed ${{ github.sha }}
@@ -28,7 +28,7 @@ jobs:
 ```
 
 The `url` is the Shoutrrr service URL as described in the [service
-overview](https://containrrr.dev/shoutrrr/services/overview/). Service
+overview](https://nicholas-fedor.github.io/shoutrrr/services/overview/). Service
 URLs usually contains tokens or other information you should keep
 confidential, so make sure you store the URL or at least the secret
 parts of the URL in a GitHub secret.

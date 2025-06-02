@@ -1,23 +1,23 @@
 ---
-name: 'Shoutrrr action'
-description: 'Notifications using https://containrrr.dev/shoutrrr'
+name: "Shoutrrr action"
+description: "Notifications using https://github.com/nicholas-fedor/shoutrrr"
 branding:
   icon: send
   color: purple
 inputs:
   url:
-    description: 'The Shoutrrr notification url'
+    description: "The Shoutrrr notification url"
     required: true
   message:
-    description: 'The message to send to the notification url'
+    description: "The message to send to the notification url"
     required: true
   title:
-    description: 'The title used for services that support it'
+    description: "The title used for services that support it"
     required: false
-    default: ''
+    default: ""
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
     - "send"
     - "-u"
