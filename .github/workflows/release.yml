@@ -11,12 +11,12 @@ jobs:
   release:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           fetch-depth: 0
 
       - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@e528bc2b9628971ce0e6f823f3052d1dcd9d512c # 1.73.0
+        uses: anothrNick/github-tag-action@e528bc2b9628971ce0e6f823f3052d1dcd9d512c
         id: version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -27,7 +27,7 @@ jobs:
       - name: Major version tag
         id: major-version
         if: ${{ steps.version.outputs.new_tag }}
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
         with:
           script: |
             core.setOutput('tag', '${{ steps.version.outputs.new_tag }}'.split('.')[0])
@@ -54,7 +54,7 @@ jobs:
 
       - name: Create/update release ${{ steps.major-version.outputs.tag }}
         if: ${{ steps.version.outputs.new_tag }}
-        uses: ncipollo/release-action@440c8c1cb0ed28b9f43e4d1d670870f059653174 # v1
+        uses: ncipollo/release-action@440c8c1cb0ed28b9f43e4d1d670870f059653174
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
@@ -68,7 +68,7 @@ jobs:
 
       - name: Create release ${{ steps.version.outputs.new_tag }}
         if: ${{ steps.version.outputs.new_tag }}
-        uses: ncipollo/release-action@440c8c1cb0ed28b9f43e4d1d670870f059653174 # v1
+        uses: ncipollo/release-action@440c8c1cb0ed28b9f43e4d1d670870f059653174
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.version.outputs.new_tag }}

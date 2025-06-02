@@ -20,19 +20,19 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout the code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag localbuild/testimage:latest
 
       - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
-        uses: anchore/scan-action@2c901ab7378897c01b8efaa2d0c9bf519cc64b9e # v6
+        uses: anchore/scan-action@2c901ab7378897c01b8efaa2d0c9bf519cc64b9e
         id: anchore_scan
         with:
           image: "localbuild/testimage:latest"
           fail-build: false
 
       - name: Upload Anchore Scan Report
-        uses: github/codeql-action/upload-sarif@ff0a06e83cb2de871e5a09832bc6a81e7276941f # v3
+        uses: github/codeql-action/upload-sarif@ff0a06e83cb2de871e5a09832bc6a81e7276941f
         with:
           sarif_file: ${{ steps.anchore_scan.outputs.sarif }}
