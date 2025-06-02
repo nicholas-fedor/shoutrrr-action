@@ -10,7 +10,7 @@ jobs:
     name: dockerfile
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
 
       - name: Run hadolint
         uses: hadolint/hadolint-action@54c9adbab1582c2ef04b2016b760714a4bfde3cf
@@ -19,7 +19,7 @@ jobs:
     name: markdown
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
 
       - name: Run markdownlint
         uses: DavidAnson/markdownlint-cli2-action@992badcdf24e3b8eb7e87ff9287fe931bcb00c6e
@@ -27,7 +27,7 @@ jobs:
   actionlint:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
 
       - uses: reviewdog/action-actionlint@a5524e1c19e62881d79c1f1b9b6f09f16356e281
 
@@ -35,7 +35,7 @@ jobs:
     name: Yamllint
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
 
       - name: Run Yamllint
         uses: frenck/action-yamllint@34b4bbcaeabedcfefad6adea8c5bbc42af0e2d47
