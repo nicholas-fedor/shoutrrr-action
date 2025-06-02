@@ -29,7 +29,7 @@ jobs:
       - name: Major version tag
         id: major-version
         if: ${{ steps.version.outputs.new_tag }}
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        uses: actions/github-script@5ee2b97722aeebb4c5d5c867345a6745cd868065
         with:
           script: |
             core.setOutput('tag', '${{ steps.version.outputs.new_tag }}'.split('.')[0])
