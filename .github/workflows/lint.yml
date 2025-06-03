@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
 
       - name: Run markdownlint
-        uses: DavidAnson/markdownlint-cli2-action@b904b4095f769daa379334ed4a8317535bf1b9ac
+        uses: DavidAnson/markdownlint-cli2-action@e63bd6f381371b3843e5d04c9e957e1a29453f31
 
   actionlint:
     runs-on: ubuntu-24.04
