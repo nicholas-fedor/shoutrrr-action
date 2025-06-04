@@ -1,18 +1,26 @@
 ---
-name: "Dependency Review"
-on: [pull_request]
+name: Dependency Review
+on:
+  pull_request:
+    paths:
+      - "action.yml"
+      - "Dockerfile"
+      - ".github/workflows/**"
+  workflow_dispatch:
+  merge_group:
 
 permissions:
   contents: read
 
 jobs:
   dependency-review:
-    runs-on: ubuntu-24.04
+    name: Dependency Review
+    runs-on: ubuntu-latest
     steps:
-      - name: "Checkout Repository"
+      - name: Checkout the repository
         uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
 
-      - name: "Dependency Review"
+      - name: Run the dependency review action
         uses: actions/dependency-review-action@da24556b548a50705dd671f47852072ea4c105d9
         with:
           allow-licenses: MIT
