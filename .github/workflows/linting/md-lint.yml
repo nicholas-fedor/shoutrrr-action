@@ -1,0 +1,27 @@
+---
+name: Markdown Lint
+on:
+  pull_request:
+    paths:
+      - "*.md"
+      - ".github/*.md"
+      - ".github/ISSUE_TEMPLATE/**"
+  merge_group:
+    paths:
+      - "*.md"
+      - ".github/*.md"
+      - ".github/ISSUE_TEMPLATE/**"
+
+permissions:
+  contents: read
+
+jobs:
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
+
+      - name: Run the markdownlint action
+        uses: DavidAnson/markdownlint-cli2-action@e63bd6f381371b3843e5d04c9e957e1a29453f31

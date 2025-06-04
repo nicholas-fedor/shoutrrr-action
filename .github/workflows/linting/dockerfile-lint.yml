@@ -1,0 +1,23 @@
+---
+name: Dockerfile Lint
+on:
+  pull_request:
+    paths:
+      - "Dockerfile"
+  merge_group:
+    paths:
+      - "Dockerfile"
+
+permissions:
+  contents: read
+
+jobs:
+  dockerfile-lint:
+    name: Dockerfile Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
+
+      - name: Run the hadolint action
+        uses: hadolint/hadolint-action@d292784f8f3eacda47060b259a580467b0ba410c

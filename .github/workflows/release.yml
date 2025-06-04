@@ -1,23 +1,27 @@
 ---
 name: Release
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "Dockerfile"
+  workflow_dispatch:
+
 permissions:
   contents: write
-on:
-  workflow_run:
-    workflows: ["Build and test"]
-    branches: [main]
-    types:
-      - completed
 
 jobs:
   release:
-    runs-on: ubuntu-24.04
+    name: Release
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
+      - name: Checkout the repository
+        uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
         with:
           fetch-depth: 0
 
-      - name: Bump version and push tag
+      - name: Run the github-tag action
         uses: anothrNick/github-tag-action@e528bc2b9628971ce0e6f823f3052d1dcd9d512c
         id: version
         env:
@@ -26,7 +30,7 @@ jobs:
           DEFAULT_BUMP: patch
           DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
 
-      - name: Major version tag
+      - name: Generate the major version tag
         id: major-version
         if: ${{ steps.version.outputs.new_tag }}
         uses: actions/github-script@5ee2b97722aeebb4c5d5c867345a6745cd868065
@@ -34,27 +38,27 @@ jobs:
           script: |
             core.setOutput('tag', '${{ steps.version.outputs.new_tag }}'.split('.')[0])
 
-      - name: Tag ${{ steps.major-version.outputs.tag }}
+      - name: Push the major version tag
         if: ${{ steps.version.outputs.new_tag }}
         run: |
           git tag --force ${{ steps.major-version.outputs.tag }}
           git push origin ${{ steps.major-version.outputs.tag }} --force
 
-      - name: Get current date
+      - name: Get the current date
         if: ${{ steps.version.outputs.new_tag }}
         id: date
         run: echo "date=$(date --iso-8601)" >> "$GITHUB_OUTPUT"
 
-      - name: Get shoutrrr version
+      - name: Get the shoutrrr version
         if: ${{ steps.version.outputs.new_tag }}
         id: shoutrrr
-        run: echo "version=$(docker build --iidfile ${{ runner.temp }}/iidfile - < Dockerfile 2> /dev/null  && docker run --rm "$(cat ${{ runner.temp }}/iidfile)" --version)" >> "$GITHUB_OUTPUT"
+        run: echo "version=$(docker build --iidfile ${{ runner.temp }}/iidfile - < Dockerfile 2> /dev/null && docker run --rm "$(cat ${{ runner.temp }}/iidfile)" --version)" >> "$GITHUB_OUTPUT"
 
-      - name: Build full ChangeLog
+      - name: Generate the full changelog
         if: ${{ steps.version.outputs.new_tag }}
         run: npx conventional-changelog-cli --release-count=0 --preset=eslint --outfile="${{ runner.temp }}/FullChangeLog.md"
 
-      - name: Create/update release ${{ steps.major-version.outputs.tag }}
+      - name: Create the major version release
         if: ${{ steps.version.outputs.new_tag }}
         uses: ncipollo/release-action@6996c1bc95523d963d41deede8e4a8c7d3f45744
         with:
@@ -64,11 +68,11 @@ jobs:
           name: ${{ steps.version.outputs.new_tag }} (${{ steps.date.outputs.date }} / ${{ steps.shoutrrr.outputs.version }})
           bodyFile: ${{ runner.temp }}/FullChangeLog.md
 
-      - name: Build ChangeLog
+      - name: Generate the partial changelog
         if: ${{ steps.version.outputs.new_tag }}
         run: npx conventional-changelog-cli --release-count=2 --outfile="${{ runner.temp }}/ChangeLog.md"
 
-      - name: Create release ${{ steps.version.outputs.new_tag }}
+      - name: Create the minor version release
         if: ${{ steps.version.outputs.new_tag }}
         uses: ncipollo/release-action@6996c1bc95523d963d41deede8e4a8c7d3f45744
         with:
