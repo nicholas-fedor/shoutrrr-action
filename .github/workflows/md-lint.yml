@@ -7,10 +7,6 @@ on:
       - ".github/*.md"
       - ".github/ISSUE_TEMPLATE/**"
   merge_group:
-    paths:
-      - "*.md"
-      - ".github/*.md"
-      - ".github/ISSUE_TEMPLATE/**"
 
 permissions:
   contents: read

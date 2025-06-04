@@ -8,11 +8,6 @@ on:
       - ".github/workflows/**"
       - ".github/ISSUE_TEMPLATE/config.yml"
   merge_group:
-    paths:
-      - ".yamllint"
-      - "action.yml"
-      - ".github/workflows/**"
-      - ".github/ISSUE_TEMPLATE/config.yml"
 
 permissions:
   contents: read
