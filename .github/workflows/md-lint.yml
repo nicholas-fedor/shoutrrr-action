@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@85e6279cec87321a52edac9c87bce653a07cf6c2
+        uses: actions/checkout@09d2acae674a48949e3602304ab46fd20ae0c42f
 
       - name: Run the markdownlint action
         uses: DavidAnson/markdownlint-cli2-action@a2cac9b7a796a201a848b2950067992bac1fe1a3
