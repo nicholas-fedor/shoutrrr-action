@@ -20,4 +20,4 @@ jobs:
         uses: actions/checkout@09d2acae674a48949e3602304ab46fd20ae0c42f
 
       - name: Run the markdownlint action
-        uses: DavidAnson/markdownlint-cli2-action@e31ed47acc1323d1f72148d5e548914cdf4c7ffa
+        uses: DavidAnson/markdownlint-cli2-action@93e977280559750153a80f85d87d50502bdcdda1
