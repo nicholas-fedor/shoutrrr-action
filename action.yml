@@ -1,5 +1,5 @@
 ---
-name: "Shoutrrr action"
+name: "Shoutrrr GitHub Notifications Action"
 description: "Notifications using https://github.com/nicholas-fedor/shoutrrr"
 branding:
   icon: send
