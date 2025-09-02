@@ -60,7 +60,7 @@ jobs:
 
       - name: Create the major version release
         if: ${{ steps.version.outputs.new_tag }}
-        uses: ncipollo/release-action@98d25d4189e9b6cee19b8635b1ea5cc39c158a41
+        uses: ncipollo/release-action@b7eabc95ff50cbeeedec83973935c8f306dfcd0b
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
@@ -74,7 +74,7 @@ jobs:
 
       - name: Create the minor version release
         if: ${{ steps.version.outputs.new_tag }}
-        uses: ncipollo/release-action@98d25d4189e9b6cee19b8635b1ea5cc39c158a41
+        uses: ncipollo/release-action@b7eabc95ff50cbeeedec83973935c8f306dfcd0b
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ steps.version.outputs.new_tag }}
