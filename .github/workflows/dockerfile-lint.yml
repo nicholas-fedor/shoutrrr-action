@@ -18,4 +18,4 @@ jobs:
         uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
 
       - name: Run the hadolint action
-        uses: hadolint/hadolint-action@d292784f8f3eacda47060b259a580467b0ba410c
+        uses: hadolint/hadolint-action@3285327e7ad2e137653f6da3d6640d30c05b9e1d
