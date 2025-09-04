@@ -21,6 +21,6 @@ jobs:
         uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
 
       - name: Run the yamllint action
-        uses: frenck/action-yamllint@d03bb203dc17eaf70c0678efbc4718e4695da02d
+        uses: frenck/action-yamllint@c2110a64ef7c614a626c1958ab7ef2adb8557096
         with:
           strict: true
