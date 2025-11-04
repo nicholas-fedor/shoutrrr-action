@@ -21,6 +21,6 @@ jobs:
         uses: actions/checkout@71cf2267d89c5cb81562390fa70a37fa40b1305e
 
       - name: Run the dependency review action
-        uses: actions/dependency-review-action@8e51299cdfc42118ace4e33e543a1a621a633cf5
+        uses: actions/dependency-review-action@3f464ea51184f983e3faf304315a6230972fbe6b
         with:
           allow-licenses: MIT
