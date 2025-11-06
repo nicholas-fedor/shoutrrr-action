@@ -18,4 +18,4 @@ jobs:
         uses: actions/checkout@71cf2267d89c5cb81562390fa70a37fa40b1305e
 
       - name: Run the actionlint action
-        uses: reviewdog/action-actionlint@8e1a3507eddeba1bcb41dcda6e6de09ed83c8a6b
+        uses: reviewdog/action-actionlint@186764204cf02529b48cf1f75ddd7c74c65989f4
