@@ -39,6 +39,6 @@ jobs:
           fail-build: false
 
       - name: Upload the anchore scan report
-        uses: github/codeql-action/upload-sarif@7e0b77e3a82119a2eac644853e3d5a57f566502a
+        uses: github/codeql-action/upload-sarif@d0ad1da72a4017827f685ffa9a4e77661a852633
         with:
           sarif_file: ${{ steps.anchore_scan.outputs.sarif }}
