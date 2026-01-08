@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+        uses: actions/checkout@064fe7f3312418007dea2b49a19844a9ee378f49
 
       - name: Run the yamllint action
         uses: frenck/action-yamllint@c4a316c87be0b43526eb528ff5c06137e0447075
