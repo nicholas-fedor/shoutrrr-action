@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@064fe7f3312418007dea2b49a19844a9ee378f49
+        uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
 
       - name: Run the hadolint action
         uses: hadolint/hadolint-action@2332a7b74a6de0dda2e2221d575162eba76ba5e5
