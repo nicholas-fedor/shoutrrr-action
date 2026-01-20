@@ -32,7 +32,7 @@ jobs:
         run: docker build . --file Dockerfile --tag localbuild/testimage:latest
 
       - name: Run the anchore scan action
-        uses: anchore/scan-action@6ac601cd5f6a05b7e5255db4057abb77a565b01c
+        uses: anchore/scan-action@5f513a14787cfb6a144e5abe65dfdabd1122c0b8
         id: anchore_scan
         with:
           image: "localbuild/testimage:latest"
