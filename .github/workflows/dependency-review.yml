@@ -28,4 +28,4 @@ jobs:
       - name: Run the dependency review action
         uses: actions/dependency-review-action@f5b971718edcbb31275a1db40004592335c0e031
         with:
-          allow-licenses: MIT
+          allow-licenses: MIT, Apache-2.0
