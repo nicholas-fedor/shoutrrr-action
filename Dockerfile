@@ -1,1 +1,1 @@
-FROM docker.io/nickfedor/shoutrrr:0.22.0@sha256:4726cd9ade131ab4bd28de263794590ba5c43704918341fa983689f6b7653a98
+FROM docker.io/nickfedor/shoutrrr:0.22.1@sha256:7f66288ec8b5ab5d12a7181d571c866b6f197d180ee98df94d418a2592d01998
